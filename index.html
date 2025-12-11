@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Lincoln Elementary Grade 4 - Art Supplies Fundraiser</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .goal-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .goal-section h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 20px;
+            height: 30px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .class-competition {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .class-competition h2 {
+            color: #667eea;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .class-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .class-button {
+            padding: 1.5rem;
+            background: white;
+            border: 3px solid #667eea;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .class-button:hover {
+            background: #667eea;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+        
+        .class-button.selected {
+            background: #667eea;
+            color: white;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+        
+        .info-box strong {
+            color: #1976d2;
+        }
+        
+        .books-section {
+            margin-top: 3rem;
+        }
+        
+        .books-section h2 {
+            color: #667eea;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2rem;
+        }
+        
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .book-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .book-cover {
+            width: 100%;
+            height: 350px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .book-info {
+            padding: 1.5rem;
+        }
+        
+        .book-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .book-author {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .book-description {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .book-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .ku-badge {
+            display: inline-block;
+            background: #ff9800;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .buy-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: #667eea;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+        
+        .buy-button:hover {
+            background: #5568d3;
+        }
+        
+        .ku-note {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .sharing-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .sharing-section h2 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+        
+        .sharing-section p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .share-button {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+        
+        .share-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .share-facebook { background: #1877f2; }
+        .share-twitter { background: #1da1f2; }
+        .share-email { background: #667eea; }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .book-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎨 Support Lincoln Elementary Grade 4!</h1>
+        <p>Help us raise funds for art supplies by discovering great books</p>
+    </div>
+    
+    <div class="container">
+        <div class="goal-section">
+            <h2>Our Fundraising Goal</h2>
+            <p>We're raising money to purchase art supplies for our Grade 4 classrooms. Every book you purchase or borrow (with Kindle Unlimited) helps us reach our goal!</p>
+            <div class="progress-bar">
+                <div class="progress-fill">$0 / $250</div>
+            </div>
+            <p style="text-align: center; color: #666; margin-top: 1rem;">Campaign runs for 2 weeks - help us spread the word!</p>
+        </div>
+        
+        <div class="class-competition">
+            <h2>🏆 Class Competition - Pick Your Class!</h2>
+            <p style="text-align: center; margin-bottom: 1.5rem;">Select your child's class below to support them. Classes compete to see who can raise the most!</p>
+            
+            <div class="class-selector">
+                <div class="class-button" onclick="selectClass('4A')">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">🌟</div>
+                    Grade 4A
+                    <div style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">$0 raised</div>
+                </div>
+                <div class="class-button" onclick="selectClass('4B')">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">⭐</div>
+                    Grade 4B
+                    <div style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">$0 raised</div>
+                </div>
+                <div class="class-button" onclick="selectClass('4C')">
+                    <div style="font-size: 2rem; margin-bottom: 0.5rem;">✨</div>
+                    Grade 4C
+                    <div style="font-size: 0.9rem; margin-top: 0.5rem; opacity: 0.8;">$0 raised</div>
+                </div>
+            </div>
+            
+            <div class="info-box">
+                <strong>📚 Kindle Unlimited Members:</strong> You can support Lincoln Elementary at NO additional cost by borrowing these books through your KU subscription! Just click any book below and select "Read for Free with Kindle Unlimited."
+            </div>
+        </div>
+        
+        <div class="books-section">
+            <h2>📖 Featured Books by Joseph Cognard</h2>
+            
+            <div class="book-grid">
+                <!-- Cemetery Girl -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        Cemetery Girl<br>Book Cover
+                    </div>
+                    <div class="book-info">
+                        <div class="book-title">Cemetery Girl</div>
+                        <div class="book-author">by Joseph Cognard</div>
+                        <div class="book-description">
+                            Follow Janie, an artistic high school girl from Queens, NY, as she explores whether her art might reach beyond the mortal realm. A captivating YA novel about creativity, connection, and the supernatural.
+                        </div>
+                        <div class="book-price">Kindle: $2.99 • Paperback: $9.99</div>
+                        <a href="https://www.amazon.com/s?k=Cemetery+Girl+Joseph+Cognard" class="buy-button" target="_blank">
+                            Purchase on Amazon →
+                        </a>
+                        <div class="ku-note">Regular purchase - supports Lincoln Elementary through author royalty donation</div>
+                    </div>
+                </div>
+                
+                <!-- Three Twigs -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        Three Twigs for<br>the Campfire<br>Book Cover
+                    </div>
+                    <div class="book-info">
+                        <div class="book-title">Three Twigs for the Campfire</div>
+                        <div class="book-author">by Joseph Cognard</div>
+                        <span class="ku-badge">📚 FREE with Kindle Unlimited</span>
+                        <div class="book-description">
+                            Three magical stories told through the minds of Miller family children during a backyard camping excursion. Twilight Zone-inspired tales for children and adults alike. Beautifully illustrated by Gabriella Cognard.
+                        </div>
+                        <div class="book-price">Kindle: $2.99 • Paperback: $8.99</div>
+                        <a href="https://www.amazon.com/s?k=Three+Twigs+Campfire+Joseph+Cognard" class="buy-button" target="_blank">
+                            Purchase or Borrow (KU) →
+                        </a>
+                        <div class="ku-note">KU members: Borrowing this book supports our school at $0 cost to you!</div>
+                    </div>
+                </div>
+                
+                <!-- Written for You -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        Written for You<br>Book Cover
+                    </div>
+                    <div class="book-info">
+                        <div class="book-title">Written for You</div>
+                        <div class="book-author">by Joseph Cognard</div>
+                        <span class="ku-badge">📚 FREE with Kindle Unlimited</span>
+                        <div class="book-description">
+                            A dark comedic play about Bob Curry, an accountant who thinks somebody told him to write a book. Perfect for fans of quirky, offbeat humor and theatrical storytelling.
+                        </div>
+                        <div class="book-price">Kindle: $2.99</div>
+                        <a href="https://www.amazon.com/s?k=Written+for+You+Joseph+Cognard" class="buy-button" target="_blank">
+                            Purchase or Borrow (KU) →
+                        </a>
+                        <div class="ku-note">KU members: Borrowing this book supports our school at $0 cost to you!</div>
+                    </div>
+                </div>
+                
+                <!-- Reigning -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        Reigning<br>Book Cover
+                    </div>
+                    <div class="book-info">
+                        <div class="book-title">Reigning</div>
+                        <div class="book-author">by Joseph Cognard</div>
+                        <span class="ku-badge">📚 FREE with Kindle Unlimited</span>
+                        <div class="book-description">
+                            An epic sci-fi adventure begins when Eddie discovers a meteorite and finds a stray dog named Modean. First book in an exciting series perfect for young readers and sci-fi fans.
+                        </div>
+                        <div class="book-price">Kindle: $2.99 • Paperback: $9.99</div>
+                        <a href="https://www.amazon.com/s?k=Reigning+Joseph+Cognard" class="buy-button" target="_blank">
+                            Purchase or Borrow (KU) →
+                        </a>
+                        <div class="ku-note">KU members: Borrowing this book supports our school at $0 cost to you!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sharing-section">
+            <h2>📣 Help Us Spread the Word!</h2>
+            <p>Share this campaign with grandparents, aunts, uncles, friends, and coworkers.<br>The more people who see it, the faster we reach our goal!</p>
+            
+            <div class="share-buttons">
+                <a href="#" class="share-button share-facebook">Share on Facebook</a>
+                <a href="#" class="share-button share-twitter">Share on Twitter</a>
+                <a href="mailto:?subject=Support Lincoln Elementary Grade 4&body=Help our school raise money for art supplies by checking out these great books!" class="share-button share-email">Share via Email</a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        let selectedClass = null;
+        
+        function selectClass(className) {
+            selectedClass = className;
+            
+            // Update button styles
+            document.querySelectorAll('.class-button').forEach(btn => {
+                btn.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
+            
+            // In real implementation, this would update all book links with the correct tracking ID
+            console.log('Selected class: Grade ' + className);
+            alert('Great! You\'re supporting Grade ' + className + '! Now click any book to purchase or borrow.');
+        }
+    </script>
+</body>
+</html>
