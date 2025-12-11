@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -145,8 +145,14 @@
         
         .book-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
+        }
+        
+        @media (max-width: 900px) {
+            .book-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         .book-card {
@@ -206,14 +212,7 @@
         }
         
         .ku-badge {
-            display: inline-block;
-            background: #ff9800;
-            color: white;
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
+            display: none;
         }
         
         .buy-button {
@@ -236,10 +235,7 @@
         }
         
         .ku-note {
-            font-size: 0.9rem;
-            color: #666;
-            text-align: center;
-            font-style: italic;
+            display: none;
         }
         
         .sharing-section {
@@ -290,10 +286,6 @@
             .header h1 {
                 font-size: 1.8rem;
             }
-            
-            .book-grid {
-                grid-template-columns: 1fr;
-            }
         }
     </style>
 </head>
@@ -335,13 +327,11 @@
                 </div>
             </div>
             
-            <div class="info-box">
-                <strong>📚 Kindle Unlimited Members:</strong> You can support Lincoln Elementary at NO additional cost by borrowing these books through your KU subscription! Just click any book below and select "Read for Free with Kindle Unlimited."
-            </div>
+
         </div>
         
         <div class="books-section">
-            <h2>📖 Featured Books by Joseph Cognard</h2>
+            <h2>📖 Featured Books & Movies by Joseph Cognard</h2>
             
             <div class="book-grid">
                 <!-- Cemetery Girl -->
@@ -359,7 +349,6 @@
                         <a href="https://www.amazon.com/s?k=Cemetery+Girl+Joseph+Cognard" class="buy-button" target="_blank">
                             Purchase on Amazon →
                         </a>
-                        <div class="ku-note">Regular purchase - supports Lincoln Elementary through author royalty donation</div>
                     </div>
                 </div>
                 
@@ -371,15 +360,13 @@
                     <div class="book-info">
                         <div class="book-title">Three Twigs for the Campfire</div>
                         <div class="book-author">by Joseph Cognard</div>
-                        <span class="ku-badge">📚 FREE with Kindle Unlimited</span>
                         <div class="book-description">
                             Three magical stories told through the minds of Miller family children during a backyard camping excursion. Twilight Zone-inspired tales for children and adults alike. Beautifully illustrated by Gabriella Cognard.
                         </div>
                         <div class="book-price">Kindle: $2.99 • Paperback: $8.99</div>
                         <a href="https://www.amazon.com/s?k=Three+Twigs+Campfire+Joseph+Cognard" class="buy-button" target="_blank">
-                            Purchase or Borrow (KU) →
+                            Purchase on Amazon →
                         </a>
-                        <div class="ku-note">KU members: Borrowing this book supports our school at $0 cost to you!</div>
                     </div>
                 </div>
                 
@@ -391,15 +378,13 @@
                     <div class="book-info">
                         <div class="book-title">Written for You</div>
                         <div class="book-author">by Joseph Cognard</div>
-                        <span class="ku-badge">📚 FREE with Kindle Unlimited</span>
                         <div class="book-description">
                             A dark comedic play about Bob Curry, an accountant who thinks somebody told him to write a book. Perfect for fans of quirky, offbeat humor and theatrical storytelling.
                         </div>
                         <div class="book-price">Kindle: $2.99</div>
                         <a href="https://www.amazon.com/s?k=Written+for+You+Joseph+Cognard" class="buy-button" target="_blank">
-                            Purchase or Borrow (KU) →
+                            Purchase on Amazon →
                         </a>
-                        <div class="ku-note">KU members: Borrowing this book supports our school at $0 cost to you!</div>
                     </div>
                 </div>
                 
@@ -411,15 +396,31 @@
                     <div class="book-info">
                         <div class="book-title">Reigning</div>
                         <div class="book-author">by Joseph Cognard</div>
-                        <span class="ku-badge">📚 FREE with Kindle Unlimited</span>
                         <div class="book-description">
                             An epic sci-fi adventure begins when Eddie discovers a meteorite and finds a stray dog named Modean. First book in an exciting series perfect for young readers and sci-fi fans.
                         </div>
                         <div class="book-price">Kindle: $2.99 • Paperback: $9.99</div>
                         <a href="https://www.amazon.com/s?k=Reigning+Joseph+Cognard" class="buy-button" target="_blank">
-                            Purchase or Borrow (KU) →
+                            Purchase on Amazon →
                         </a>
-                        <div class="ku-note">KU members: Borrowing this book supports our school at $0 cost to you!</div>
+                    </div>
+                </div>
+                
+                <!-- Forest Fun -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        Forest Fun<br>Movie Poster
+                    </div>
+                    <div class="book-info">
+                        <div class="book-title">Forest Fun</div>
+                        <div class="book-author">Animated Short Films Collection</div>
+                        <div class="book-description">
+                            A compilation of eight animation short films suitable for children all set in the forest. A little wolf, a crow, a hedgehog, and a guinea pig have imaginative adventures in the woods. These festival favorites provide entertainment for the whole family.
+                        </div>
+                        <div class="book-price">Rent: $2.99 • Buy: $9.99</div>
+                        <a href="https://www.amazon.com/gp/video/detail/B0DK8PG7FJ" class="buy-button" target="_blank">
+                            Watch on Amazon Prime →
+                        </a>
                     </div>
                 </div>
             </div>
