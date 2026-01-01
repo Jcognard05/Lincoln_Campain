@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girl Scout Troop 67 - Lightning Book Drive</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #00563f 0%, #006747 100%);
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .mission-statement {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-left: 4px solid #00563f;
+        }
+        
+        .mission-statement h3 {
+            color: #00563f;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .mission-statement p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        
+        .goal-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .goal-section h2 {
+            color: #00563f;
+            margin-bottom: 1rem;
+        }
+        
+        .progress-bar {
+            background: #e0e0e0;
+            border-radius: 20px;
+            height: 30px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            background: linear-gradient(90deg, #00563f 0%, #006747 100%);
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .info-box {
+            background: #e8f5e9;
+            border-left: 4px solid #00563f;
+            padding: 1rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+        
+        .info-box strong {
+            color: #00563f;
+        }
+        
+        .simple-campaign-notice {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .simple-campaign-notice h3 {
+            color: #00563f;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .simple-campaign-notice p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        .books-section {
+            margin-top: 3rem;
+        }
+        
+        .books-section h2 {
+            color: #00563f;
+            margin-bottom: 2rem;
+            text-align: center;
+            font-size: 2rem;
+        }
+        
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        
+        @media (max-width: 900px) {
+            .book-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .book-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+        
+        .book-cover {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+            overflow: hidden;
+        }
+        
+        .book-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .book-info {
+            padding: 1.5rem;
+        }
+        
+        .book-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .book-author {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .book-description {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+        }
+        
+        .book-genre {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #00563f;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            margin-right: 0.5rem;
+        }
+        
+        .kdp-badge {
+            display: inline-block;
+            background: #ff9900;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .book-price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #00563f;
+            margin-bottom: 1rem;
+        }
+        
+        .buy-button {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background: #00563f;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+            margin-bottom: 0.5rem;
+        }
+        
+        .buy-button:hover {
+            background: #004830;
+        }
+        
+        .sharing-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .sharing-section h2 {
+            color: #00563f;
+            margin-bottom: 1rem;
+        }
+        
+        .sharing-section p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .share-button {
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: transform 0.2s ease;
+        }
+        
+        .share-button:hover {
+            transform: scale(1.05);
+        }
+        
+        .share-facebook { background: #1877f2; }
+        .share-twitter { background: #1da1f2; }
+        .share-email { background: #00563f; }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>⚡ Make a True Girl Scout Salute!</h1>
+        <p>Support Troop 67's Lightning Book Drive for Badge Supplies</p>
+    </div>
+    
+    <div class="container">
+        <div class="mission-statement">
+            <h3>📚 Supporting Our Scouts Through Reading</h3>
+            <p>
+                We're partnering with independent authors who are donating their book royalties to help our Girl Scouts earn badges and grow! When you purchase or gift these books, you're helping Troop 67 while discovering quality literature.
+            </p>
+            <p>
+                <strong>Perfect for gifts!</strong> The gift of reading is wonderful, and knowing it supports our Girl Scouts makes it even more special. Because all purchases are done through Amazon, you can simply select the gift option on Amazon to send directly to friends and family!
+            </p>
+        </div>
+        
+        <div class="goal-section">
+            <h2>Help Us Earn Our Badges!</h2>
+            <p>Troop 67 is raising funds for badge supplies and materials. Every book you purchase helps our scouts learn new skills, explore their interests, and grow as leaders. Your support makes a real difference!</p>
+            <div class="progress-bar">
+                <div class="progress-fill">$0 / $400</div>
+            </div>
+            <p style="text-align: center; color: #666; margin-top: 1rem;">⚡ Lightning Campaign - Only 3 days! Share with your entire network!</p>
+        </div>
+        
+        <div class="simple-campaign-notice">
+            <h3>🎁 Books Make Great Gifts & Kindle Unlimited Members Can Help Free!</h3>
+            <p>Looking for meaningful gifts? These books are perfect for readers of all ages. Every purchase supports our troop!</p>
+            <p style="margin-top: 1rem;"><strong>Have Kindle Unlimited?</strong> You can support our scouts at no extra cost! All pages read during our 3-day campaign for any KDP Select book (marked with 📚) add to our success!</p>
+        </div>
+        
+        <div class="books-section">
+            <h2>📖 Featured Books Supporting Troop 67</h2>
+            <p style="text-align: center; color: #666; margin-bottom: 2rem;">Discover amazing stories while helping Girl Scouts earn their badges!</p>
+            
+            <div class="book-grid">
+                <!-- Cemetery Girl -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="https://m.media-amazon.com/images/I/71fj14EpBXL._SL1360_.jpg" alt="Cemetery Girl Cover">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-genre">YA / Supernatural</span>
+                        <div class="book-title">Cemetery Girl</div>
+                        <div class="book-author">by Joseph Cognard</div>
+                        <div class="book-description">
+                            Follow Janie, an artistic high school girl from Queens, NY, as she explores whether her art might reach beyond the mortal realm. A captivating YA novel about creativity, connection, and the supernatural.
+                        </div>
+                        <div class="book-price">Kindle: $2.99 • Paperback: $9.99</div>
+                        <a href="https://www.amazon.com/s?k=Cemetery+Girl+Joseph+Cognard" class="buy-button" target="_blank">
+                            Purchase on Amazon →
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Three Twigs -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="https://m.media-amazon.com/images/I/71+1tgLTLKL._SL1360_.jpg" alt="Three Twigs for the Campfire Cover">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-genre">Fantasy / All Ages</span>
+                        <span class="kdp-badge">📚 KDP Select</span>
+                        <div class="book-title">Three Twigs for the Campfire</div>
+                        <div class="book-author">by Joseph Cognard</div>
+                        <div class="book-description">
+                            Three magical stories told through the minds of Miller family children during a backyard camping excursion. Perfect for scouts! Twilight Zone-inspired tales beautifully illustrated by Gabriella Cognard.
+                        </div>
+                        <div class="book-price">Kindle: $2.99 • Paperback: $8.99</div>
+                        <a href="https://www.amazon.com/s?k=Three+Twigs+Campfire+Joseph+Cognard" class="buy-button" target="_blank">
+                            Purchase on Amazon →
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Written for You -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="https://m.media-amazon.com/images/I/71aiV+Ou+BL._SL1360_.jpg" alt="Written for You Cover">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-genre">Dark Comedy / Play</span>
+                        <span class="kdp-badge">📚 KDP Select</span>
+                        <div class="book-title">Written for You</div>
+                        <div class="book-author">by Joseph Cognard</div>
+                        <div class="book-description">
+                            A dark comedic play about Bob Curry, an accountant who thinks somebody told him to write a book. Perfect for fans of quirky, offbeat humor and theatrical storytelling.
+                        </div>
+                        <div class="book-price">Kindle: $2.99</div>
+                        <a href="https://www.amazon.com/s?k=Written+for+You+Joseph+Cognard" class="buy-button" target="_blank">
+                            Purchase on Amazon →
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Reigning -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="https://m.media-amazon.com/images/I/61UeAUI7aRL._SL1360_.jpg" alt="Reigning Cover">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-genre">Sci-Fi Adventure</span>
+                        <span class="kdp-badge">📚 KDP Select</span>
+                        <div class="book-title">Reigning</div>
+                        <div class="book-author">by Joseph Cognard</div>
+                        <div class="book-description">
+                            An epic sci-fi adventure begins when Eddie discovers a meteorite and finds a stray dog named Modean. First book in an exciting series perfect for young readers and sci-fi fans.
+                        </div>
+                        <div class="book-price">Kindle: $2.99 • Paperback: $9.99</div>
+                        <a href="https://www.amazon.com/s?k=Reigning+Joseph+Cognard" class="buy-button" target="_blank">
+                            Purchase on Amazon →
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Inside the Masque -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="https://m.media-amazon.com/images/I/91mwF6CqFRL._SL1500_.jpg" alt="Inside the Masque Cover">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-genre">Sci-Fi Thriller</span>
+                        <div class="book-title">Inside the Masque</div>
+                        <div class="book-author">by R.T.W. Lipkin</div>
+                        <div class="book-description">
+                            In the future, your masque is your world. When a powerful figure in the masque business shows up dead, Chief Inspector McNair must uncover the truth. A gripping techno-thriller perfect for adult readers.
+                        </div>
+                        <div class="book-price">Kindle: $7.60</div>
+                        <a href="https://www.amazon.com/Inside-Masque-R-T-Lipkin-ebook/dp/B07S6HC4KR" class="buy-button" target="_blank">
+                            Purchase on Amazon →
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Nothing Personal -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <img src="https://m.media-amazon.com/images/I/81874rEMc6L._SL1500_.jpg" alt="Nothing Personal Cover">
+                    </div>
+                    <div class="book-info">
+                        <span class="book-genre">Dystopian Sci-Fi</span>
+                        <span class="kdp-badge">📚 KDP Select</span>
+                        <div class="book-title">Nothing Personal: West Hills Season One</div>
+                        <div class="book-author">by R.T.W. Lipkin</div>
+                        <div class="book-description">
+                            When Addyson's new post isn't the promotion she expected, she discovers a powerful enemy wants her dead. A thrilling dystopian adventure for adult readers.
+                        </div>
+                        <div class="book-price">Kindle: $4.48</div>
+                        <a href="https://www.amazon.com/Nothing-Personal-West-Hills-Season-ebook/dp/B082DLQVGY" class="buy-button" target="_blank">
+                            Purchase on Amazon →
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Forest Fun -->
+                <div class="book-card">
+                    <div class="book-cover">
+                        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #00563f 0%, #006747 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem; font-weight: bold; text-align: center; padding: 2rem;">
+                            Forest Fun<br>Movie Poster
+                        </div>
+                    </div>
+                    <div class="book-info">
+                        <span class="book-genre">Family / Animation</span>
+                        <div class="book-title">Forest Fun</div>
+                        <div class="book-author">Animated Short Films Collection</div>
+                        <div class="book-description">
+                            Eight delightful animated short films featuring forest creatures on imaginative adventures. Perfect for family movie night and great for Girl Scout viewing parties!
+                        </div>
+                        <div class="book-price">Rent: $2.99 • Buy: $9.99</div>
+                        <a href="https://www.amazon.com/gp/video/detail/B0DK8PG7FJ" class="buy-button" target="_blank">
+                            Watch on Amazon Prime →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="sharing-section">
+            <h2>📣 Help Our Scouts Succeed!</h2>
+            <p>Share this campaign with grandparents, aunts, uncles, friends, neighbors, and coworkers.<br>The more people who support us, the more badges our scouts can earn!</p>
+            
+            <div class="share-buttons">
+                <a href="#" class="share-button share-facebook">Share on Facebook</a>
+                <a href="#" class="share-button share-twitter">Share on Twitter</a>
+                <a href="mailto:?subject=Support Girl Scout Troop 67&body=Help our Girl Scouts earn their badges by checking out these great books and films! Every purchase supports Troop 67." class="share-button share-email">Share via Email</a>
+            </div>
+            
+            <div class="info-box" style="margin-top: 2rem;">
+                <strong>💚 Thank You for Supporting Girl Scouts!</strong> Every book purchased helps our troop learn, grow, and lead. Your support means the world to our scouts and their families!
+            </div>
+        </div>
+    </div>
+</body>
+</html>
